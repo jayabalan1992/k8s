@@ -1,0 +1,6 @@
+#Error memcache.go:265] couldn't get current server API group list: Get "http://localhost:8080/api?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused
+Get kubeconfig from gcloud 
+gcloud container clusters get-credentials jay-democluster \
+    --region=us-central1
+
+
