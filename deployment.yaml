@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.23.2
+      - name: pyapp
+        image: us-west4-docker.pkg.dev/centering-keep-391803/pyapp/testpyapp:1.2
         ports:
-        - containerPort: 80
+        - containerPort: 5000

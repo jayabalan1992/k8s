@@ -1,0 +1,4 @@
+FROM python:3.7-alpine3.17
+COPY requirements.txt .
+COPY app.py .
+

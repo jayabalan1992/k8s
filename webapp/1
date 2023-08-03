@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: nginx_app
+  labels:
+    name: webservice
+spec:
+  type: ClusterIp
+  selector:
+    app: web
+  ports:
+    - targetPort: 80
+      port: 80
+  
