@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: us-west4-docker.pkg.dev/centering-keep-391803/pyapp/testpyapp:1.7
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 200m
