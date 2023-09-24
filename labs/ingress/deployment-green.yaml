@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-green
+  labels:
+    app: web
+    env: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+      version: green
+  template:
+    metadata:
+      labels:
+        app: web
+        version: green
+    spec:
+      containers:
+      - name: pyapp
+        image: us-west4-docker.pkg.dev/centering-keep-391803/pyapp/testpyapp:1.7
+        ports: 
+        - containerPort: 5000
+        env:
+          - name: USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: userinfo
+                key: username 
