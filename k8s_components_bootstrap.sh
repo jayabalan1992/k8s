@@ -8,6 +8,10 @@ if hostnamectl | grep -q "Ubuntu"; then
 elif hostnamectl | grep -qE "Rocky|CentOS"; then
 	yum install kubectl wget docker -y
 	yum install google-cloud-sdk-gke-gcloud-auth-plugin -y
+	yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	yum install -y yum-utils
+	yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	yum install docker-compose-plugin -y
 else
     echo "Unknown operating system flavor"
     hostnamectl | grep Operating # print the hostnamectl output for debugging purposes
